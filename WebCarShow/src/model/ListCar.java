@@ -69,4 +69,9 @@ public class ListCar {
 		return make + ": " + model + ": " + year;
 	}
 
+	@Override
+	public String toString() {
+		return "ListCar [id=" + id + ", make=" + make + ", model=" + model + ", year=" + year + "]";
+	}
+
 }
