@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create New Ticket</title>
+</head>
+<body>
+	<form th:object="${newTicket}" th:action="@{/update/{id}(id=${newTicket.id})}"  method=POST>
+		Description: <input name="description" size="100" th:field="*{description}"> <br />
+		Priority: <input name="priority" size="20" th:field="*{priority}"><br /> 
+		Status: <input name="status" size="50" th:field="*{status}"><br /> 
+		Store Code: <input name="Store.storeCode" size="4" th:field="*{Store.storeCode}"><br />
+		Store Name: <input name="store.storeName" size="50" th:field="*{store.storeName}"><br />
+		Store Phone Number:<input name="store.storeNumber" size="20" th:field="*{store.storeNumber}"><br /> 
+		<input name="submit" type="submit" value="submit" />
+	</form>
+	<a href="viewAll">View all Tickets</a>
+</body>
+</html>

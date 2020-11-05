@@ -42,7 +42,6 @@ public class SpringTicketsApplication implements CommandLineRunner{
 		Store s = new Store("5660", "AMES 4", "555-555-4454");
 		Store s2 = new Store("1449", "WES DES MOINES", "563-146-7875");
 		
-		
 		t.setStore(s);
 		t.setStore(s2);
 		repo.save(t);

@@ -21,10 +21,13 @@ public class Ticket {
 		this.status = "IN QUEUE";
 	}
 
-	public Ticket(long id, String description) {
+	
+	public Ticket(long id, String description, String priority, String status) {
 		super();
 		this.id = id;
 		this.description = description;
+		this.priority = priority;
+		this.status = status;
 	}
 
 	public Ticket(String description, String priority, String status) {

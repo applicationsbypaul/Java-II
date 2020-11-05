@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Tickets</title>
+</head>
+<body>
+	<form>
+		<table>
+		<tr>
+		<th>Ticket ID</th>
+		<th>Description</th>
+		<th>Priority</th>
+		<th>Status</th>
+		<th>Store Code</th>
+		<th>Store Name</th>
+		<th>Store Number</th>
+			<tr th:each="currentTicket : ${tickets}">
+				<td th:text="${currentTicket.id}" />
+				<td th:text="${currentTicket.description}" />
+				<td th:text="${currentTicket.priority}" />
+				<td th:text="${currentTicket.status}" />
+				<td th:text="${currentTicket.Store.storeCode}"/>
+				<td th:text="${currentTicket.store.storeName}" />
+				<td th:text="${currentTicket.store.storeNumber}" />
+				<td><a th:href="@{/edit/{id}(id=${currentTicket.id})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${currentTicket.id})}">Delete</a></td>
+			</tr>
+		</table>
+	</form>
+	<a href="../inputTicket">Add a new ticket</a>
+</body>
+</html>
