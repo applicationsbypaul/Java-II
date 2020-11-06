@@ -1,16 +1,17 @@
 package dmacc.beans;
 
 import javax.persistence.Embeddable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Embeddable
+@Data
+@NoArgsConstructor
 public class Store {
 	private String storeCode;
 	private String storeName;
 	private String storeNumber;
 	
-	public Store(){
-		super();
-	}
 	
 	public Store(String storeCode, String storeName, String storeNumber) {
 		super();
@@ -24,28 +25,4 @@ public class Store {
 		return "Store [storeCode=" + storeCode + ", storeName=" + storeName + ", storeNumber=" + storeNumber + "]";
 	}
 
-	public String getStoreCode() {
-		return storeCode;
-	}
-
-	public void setStoreCode(String storeCode) {
-		this.storeCode = storeCode;
-	}
-
-	public String getStoreName() {
-		return storeName;
-	}
-
-	public void setStoreName(String storeName) {
-		this.storeName = storeName;
-	}
-
-	public String getStoreNumber() {
-		return storeNumber;
-	}
-
-	public void setStoreNumber(String storeNumber) {
-		this.storeNumber = storeNumber;
-	}
-	
 }
