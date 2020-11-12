@@ -3,15 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Create New Ticket</title>
+<script>
+function checkForm(form){
+	var description1 = form.description;
+	if(form.description.value == ""){
+		alert("Error: Input for description is empty!");
+		form.description.focus();
+		return false;
+	} else if(form.priority.value ==""){
+		alert("Error: Input for priority is empty!");
+		form.priority.focus();
+		return false;
+	} else if(form.status.value == ""){
+		alert("Error: Input for status is empty!");
+		form.status.focus();
+		return false;
+	} else if(form["Store.storeCode"].value == ""){
+		alert("Error: Input for store code is empty!");
+		form["Store.storeCode"].focus();
+		return false;
+	} else if(form["store.storeName"].value == ""){
+		alert("Error: Input for store name is empty!");
+		form["store.storeName"].focus();
+		return false;
+	} else if(form["store.storeNumber"].value == ""){
+		alert("Error: Input for store number is empty!");
+		form["store.storeNumber"].focus();
+		return false;
+	}
+	return true;
+}
+</script>
 </head>
 <body>
-	<form th:object="${newTicket}" th:action="@{/update/{id}(id=${newTicket.id})}"  method=POST>
-		Description: <input name="description" size="100" th:field="*{description}"> <br />
+	<form th:object="${newTicket}" th:action="@{/update/{id}(id=${newTicket.id})}"  method=POST onsubmit="return checkForm(this);">
+		Description: <input name="description"  size="100" th:field="*{description}"> <br />
 		Priority: <input name="priority" size="20" th:field="*{priority}"><br /> 
 		Status: <input name="status" size="50" th:field="*{status}"><br /> 
-		Store Code: <input name="Store.storeCode" size="4" th:field="*{Store.storeCode}"><br />
-		Store Name: <input name="store.storeName" size="50" th:field="*{store.storeName}"><br />
-		Store Phone Number:<input name="store.storeNumber" size="20" th:field="*{store.storeNumber}"><br /> 
+		Store Code: <input name="Store.storeCode" size="4" th:field="*{Store.storeCode}"></input><br />
+		Store Name: <input name="store.storeName" size="50" th:field="*{store.storeName}"></input><br />
+		Store Phone Number:<input name="store.storeNumber" size="20" th:field="*{store.storeNumber}"></input><br /> 
 		<input name="submit" type="submit" value="submit" />
 	</form>
 	<a href="viewAll">View all Tickets</a>
